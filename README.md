@@ -51,6 +51,66 @@ The data wrangling phase of this project has been a meticulous journey through t
 - **Gender Distribution**: An examination of gender statistics yielded a nearly balanced split with 5,075 females and 4,925 males recorded. This equitable distribution is crucial, as it reflects a non-biased cross-section of the population, laying the groundwork for gender-inclusive healthcare insights.
 - **Data Reduction**: Focused efforts in data reduction distilled the dataset to its essence, concentrating on variables critical to the network analysis such as the numerical identifiers for hospitals and medical conditions, as well as the admission and discharge dates of patients. Such streamlining was instrumental in enhancing the clarity and manageability of the dataset, paving the way for a more focused and efficient analytical process.
 
+## Exploratory Data Analysis (EDA) Results
+
+### 1. Distribution Analysis
+
+#### Age
+The age distribution is fairly broad, covering all life stages from infants to the elderly. The bulk of the dataset appears to be adults and seniors.
+
+#### Average Glucose Level
+This shows a right-skewed distribution, indicating a large number of patients with glucose levels in the normal to pre-diabetic range, and fewer patients in the diabetic range.
+
+#### BMI
+The BMI distribution is somewhat normally distributed with a slight right skew, suggesting a range of body weights from underweight to obese categories.
+
+### 2. Categorical Data Distribution
+
+Each categorical variable displays its unique distribution pattern across various categories:
+
+- **Gender**: Slightly more female participants than male.
+- **Ever Married**: A higher proportion of participants are married.
+- **Work Type**: A large number of participants are privately employed.
+- **Residence Type**: There is a near even split between rural and urban residents.
+- **Smoking Status**: A significant number of participants have never smoked.
+- **Age and Glucose Categories**: These derived categories help to segment the population further for analysis.
+
+### 3. Correlation Analysis
+
+The heatmap of numerical features shows:
+
+- **Age** is moderately correlated with stroke, which aligns with medical understanding that stroke risk increases with age.
+- **Hypertension** and **heart disease** also show some correlation with stroke, which is expected as they are known risk factors.
+
+### 4. Stroke Analysis via Cross-tabulation
+
+#### Gender and Stroke
+The risk of stroke is slightly higher in males (5.11%) compared to females (4.71%), with no strokes reported in the 'Other' gender category. This could be due to the smaller sample size for the 'Other' category.
+
+These insights provide a solid foundation for constructing the network of healthcare interactions and preparing for predictive modeling to identify and manage stroke risks more effectively.
+
+## Network Analysis
+
+The network graph has been successfully constructed with the following characteristics:
+
+- **20 nodes**: Each node represents a group of patients, categorized by their age category and work type.
+- **40 edges**: Edges connect nodes if they share patients with similar health conditions within the same age category. The weight of an edge indicates the minimum number of patients sharing a specific condition between the two connected groups.
+
+### Network Visualization and Analysis
+
+#### Visualization
+- **Nodes**: Represent groups of patients, categorized by age category and work type.
+- **Edges**: Reflect connections between groups that share similar health conditions, with the weight of the edges representing the minimum number of patients sharing these conditions.
+
+#### Centrality Measures
+We calculated three types of centrality measures for each node:
+- **Degree Centrality**: Measures the number of connections a node has. Higher values indicate nodes with more connections, suggesting these groups might be central in terms of shared health conditions.
+- **Betweenness Centrality**: Measures the extent to which a node lies on paths between other nodes. Nodes with high betweenness might serve as crucial connectors or bridges within the network.
+- **Eigenvector Centrality**: Reflects the influence of a node in a network. High values indicate nodes that are connected to many other nodes that are themselves well connected.
+
+For the first five nodes, which represent different work types within the 'Child' age category, we see:
+- **Similar Centrality Values**: All centrality measures are equal across these nodes, likely due to the simplistic way we created edges based solely on shared health conditions without more detailed interactions. This might suggest uniformity in how conditions like hypertension or heart disease are distributed across these work types in children.
+
 
 ## Predictive Modeling Results
 
