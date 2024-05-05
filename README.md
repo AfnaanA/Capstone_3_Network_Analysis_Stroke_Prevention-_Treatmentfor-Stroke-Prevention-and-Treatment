@@ -2,7 +2,6 @@
 
 
 ## Network Analysis for Stroke Prevention and Treatment
-### Project Title: Exploring Healthcare Networks for Effective Stroke Prevention and Management
 
 #### Background
 Strokes are serious medical conditions caused by the sudden interruption of blood supply to part of the brain, leading to potential long-term disabilities or death. Effective prevention and treatment hinge on understanding the patient's risk factors and healthcare system interactions. This project utilizes a comprehensive dataset to analyze healthcare networks in relation to stroke risk factors and management, aiming to optimize healthcare delivery and patient outcomes.
